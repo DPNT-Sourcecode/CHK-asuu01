@@ -103,7 +103,7 @@ def checkout(skus):
     # Item H
     multiplesOf10H = int(discountedItems['H'] / 10)
     discountForH = ((multiplesOf10H * discounts['10H'])
-                    + (int((discountedItems['H'] - multiplesOf5A * 10) / 5) * discounts['5H']))
+                    + (int((discountedItems['H'] - multiplesOf10H * 10) / 5) * discounts['5H']))
     totalForH = discountedItems['H'] * priceTable['H'] - discountForH
 
     # Item K
@@ -161,6 +161,4 @@ def checkout(skus):
 
     return total
 
-print(checkout('AAAAABBEE'))
-
-
+print(checkout('AAAAA'))
