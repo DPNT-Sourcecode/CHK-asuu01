@@ -59,5 +59,3 @@ def checkout(skus):
     total = total + totalForA + totalForB + totalForF
 
     return total
-
-print(checkout('FFFFFFF'))
