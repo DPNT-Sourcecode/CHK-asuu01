@@ -158,4 +158,4 @@ def checkout(skus):
 
     return total
 
-print(checkout('UUUU'))
+print(checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
