@@ -18,7 +18,13 @@ def checkout(skus):
     total = 0
 
     for item in shoppingList:
-        pass
+        if item == 'A':
+            if countOfA >= 3:
+                total += 
+        elif item == 'B':
+            pass
+        else:
+            total += priceTable[item]
 
 checkout('AAA')
 
