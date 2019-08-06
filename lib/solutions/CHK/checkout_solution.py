@@ -53,19 +53,26 @@ def checkout(skus):
     }
 
     # Gather up discount item and it's count
-    discountedItems = {'A': 0,
-                       'B': 0,
-                       'E': 0,
-                       'F': 0,
-                       'H': 0,
-                       'K': 0,
-                       'N': 0,
-                       'M': 0,
-                       'P': 0,
-                       'Q': 0,
-                       'R': 0,
-                       'U': 0,
-                       'V': 0}
+    discountedItems = {
+        'A': 0,
+        'E': 0,
+        'F': 0,
+        'H': 0,
+        'K': 0,
+        'N': 0,
+        'M': 0,
+        'P': 0,
+        'Q': 0,
+        'R': 0,
+        'B': 0,
+        'S': 0,
+        'T': 0,
+        'U': 0,
+        'V': 0,
+        'X': 0,
+        'Y': 0,
+        'Z': 0
+    }
 
     for discItem in discountedItems.keys():
         for item in shoppingList:
@@ -144,7 +151,13 @@ def checkout(skus):
                     + (int((discountedItems['V'] - multiplesOf3V * 3) / 2) * discounts['2V']))
     totalForV = discountedItems['V'] * priceTable['V'] - discountForV
 
-
+    # Buy any 3 items from STXYZ
+    multiplesOf3 = int((discountedItems['S']
+                        + discountedItems['T']
+                        + discountedItems['X']
+                        + discountedItems['Y']
+                        + discountedItems['Z']) / 3)
+            
 
 
     total = (total
@@ -162,3 +175,4 @@ def checkout(skus):
     return total
 
 print(checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+
