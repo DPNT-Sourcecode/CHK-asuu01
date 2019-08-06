@@ -14,18 +14,20 @@ def checkout(skus):
 
     countOfA = 0
     countOfB = 0
-
     total = 0
 
     for item in shoppingList:
-        if item == 'A':
-            if countOfA >= 3:
-                total += 
-        elif item == 'B':
-            pass
-        else:
-            total += priceTable[item]
+        total += priceTable[item]
 
-checkout('AAA')
+        if item == 'A':
+            countOfA += 1
+        elif item == 'B':
+            countOfB += 1
+
+    total = total - (int(countOfA / 3) * 20) - (int(countOfB / 2) * 15)
+
+    return total
+
+print(checkout('AACDDDABB'))
 
 
