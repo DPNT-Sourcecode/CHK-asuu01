@@ -157,3 +157,5 @@ def checkout(skus):
              + totalForV)
 
     return total
+
+print(checkout('F'))
