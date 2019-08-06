@@ -187,3 +187,5 @@ def checkout(skus):
              + valueToAdd)
 
     return total
+
+print(checkout('S'))
