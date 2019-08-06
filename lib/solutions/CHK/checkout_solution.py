@@ -79,7 +79,7 @@ def checkout(skus):
             if item == discItem:
                 discountedItems[discItem] += 1
 
-    multiplesDicountItems = ('A', 'B', 'F', 'H', 'K', 'M', 'P', 'Q', 'S', 'T', 'U', 'V', 'X', 'Y,', 'Z')
+    multiplesDicountItems = ('A', 'B', 'F', 'H', 'K', 'M', 'P', 'Q', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z')
     total = 0
     for item in shoppingList:
         if item not in multiplesDicountItems:
