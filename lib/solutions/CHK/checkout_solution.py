@@ -45,15 +45,32 @@ def checkout(skus):
         '2B': 15
     }
 
-    countOfA = 0
-    countOfB = 0
-    countOfE = 0
-    countOfF = 0
+    # item: discount pairs
+    discountedItems = {'A': 0,
+                       'B': 0,
+                       'E': 0,
+                       'F': 0,
+                       'H': 0,
+                       'K': 0,
+                       'N': 0,
+                       'P': 0,
+                       'Q': 0,
+                       'R': 0,
+                       'U': 0,
+                       'V': 0}
+
+    for discItem in discountedItems.keys():
+        for item in shoppingList:
+            if item == discItem:
+                discountedItems[discItem] += 1
+
     total = 0
 
     for item in shoppingList:
-        if item in ('C', 'D', 'E'):
+        if item not in discountedItems:
             total += priceTable[item]
+
+
         if item == 'A':
             countOfA += 1
         elif item == 'B':
