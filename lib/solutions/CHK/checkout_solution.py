@@ -19,15 +19,21 @@ def checkout(skus):
         'E': 40
     }
 
+    discounts = {
+        '3A': 20,
+        '5A': 50,
+        '2B': 15
+    }
+
     countOfA = 0
     countOfB = 0
     countOfE = 0
     total = 0
 
     for item in shoppingList:
-        total += priceTable[item]
-
-        if item == 'A':
+        if item in ('C', 'D', 'E'):
+            total += priceTable[item]
+        elif item == 'A':
             countOfA += 1
         elif item == 'B':
             countOfB += 1
@@ -35,15 +41,15 @@ def checkout(skus):
             countOfE += 1
 
     multiplesOf5A = int(countOfA / 5)
-    discountForA = (multiplesOf5A * 50) + (int((countOfA - multiplesOf5A * 5) / 3) * 20)
+    discountForA = (multiplesOf5A * discounts['5A']) + (int((countOfA - multiplesOf5A * 5) / 3) * discounts['3A'])
+    totalForA = countOfA * priceTable['A'] - discountForA
 
-    total = total - discountForA - (int(countOfB / 2) * 15)
+    countOfB -= int(countOfE / 2)
+    totalForB = countOfB * priceTable['B'] - int(countOfB / 2) * discounts['2B']
 
-    freeBs = int(countOfE / 2)
-
-    if freeBs and countOfB:
-        # Since customer is always favoured, it is assumed that getting a free B does not remove the 2B for 45 discount.
-        # Under the same assumption also discounting full B price first, and then still applying 2Bs for 45.
-        total = total - priceTable['B'] * freeBs
+    total = total + totalForA + totalForB
 
     return total
+
+print(checkout('ABCDEABCDE'))
+
