@@ -34,7 +34,8 @@ def checkout(skus):
         elif item == 'E':
             countOfE += 1
 
-    discountForA = (int(countOfA / 5) * 50) + (int(countOfA / 3) * 20)
+    multiplesOf5A = int(countOfA / 5)
+    discountForA = (multiplesOf5A * 50) + ((int(countOfA - multiplesOf5A * 5) / 3) * 20)
 
     total = total - discountForA - (int(countOfB / 2) * 15)
 
@@ -47,4 +48,4 @@ def checkout(skus):
 
     return total
 
-print(checkout('AAAAA'))
+print(checkout('AAAAAAA'))
