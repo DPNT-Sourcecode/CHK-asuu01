@@ -183,12 +183,7 @@ def checkout(skus):
              + totalForQ
              + totalForU
              + totalForV
-             + arrayOfSTXYZ
+             + sum(arrayOfSTXYZ)
              + valueToAdd)
 
     return total
-
-print(checkout('SSTTXXYYZZ'))
-
-
-
