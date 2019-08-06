@@ -2,15 +2,36 @@
 # skus = unicode string
 def checkout(skus):
 
+
     priceTable = {
         'A': 50,
         'B': 30,
         'C': 20,
         'D': 15,
         'E': 40,
-        'F': 10
-    }
+        'F': 10,
+        'G': ,
+        'H': ,
+        'I': ,
+        'J': ,
+        'K': ,
+        'L': ,
+        'M': ,
+        'N': ,
+        'O': ,
+        'P': ,
+        'Q': ,
+        'R': ,
+        'S': ,
+        'T': ,
+        'U': ,
+        'V': ,
+        'W': ,
+        'X': ,
+        'Y': ,
+        'Z': ,
 
+    }
     shoppingList = []
     for item in skus:
         if item not in priceTable.keys():
