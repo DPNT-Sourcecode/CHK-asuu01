@@ -144,6 +144,9 @@ def checkout(skus):
                     + (int((discountedItems['V'] - multiplesOf3V * 3) / 2) * discounts['2V']))
     totalForV = discountedItems['V'] * priceTable['V'] - discountForV
 
+
+
+
     total = (total
              + totalForA
              + totalForB
