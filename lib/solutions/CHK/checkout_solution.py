@@ -35,7 +35,7 @@ def checkout(skus):
             countOfE += 1
 
     multiplesOf5A = int(countOfA / 5)
-    discountForA = (multiplesOf5A * 50) + ((int(countOfA - multiplesOf5A * 5) / 3) * 20)
+    discountForA = (multiplesOf5A * 50) + (int((countOfA - multiplesOf5A * 5) / 3) * 20)
 
     total = total - discountForA - (int(countOfB / 2) * 15)
 
@@ -47,5 +47,3 @@ def checkout(skus):
         total = total - priceTable['B'] * freeBs
 
     return total
-
-print(checkout('AAAAAAA'))
