@@ -2,7 +2,7 @@
 # skus = unicode string
 def checkout(skus):
 
-    knownItems = ('A', 'B', 'C', 'D')
+    knownItems = ('A', 'B', 'C', 'D', 'E')
 
     shoppingList = []
     for item in skus:
@@ -15,11 +15,13 @@ def checkout(skus):
         'A': 50,
         'B': 30,
         'C': 20,
-        'D': 15
+        'D': 15,
+        'E': 40
     }
 
     countOfA = 0
     countOfB = 0
+    countofE = 0
     total = 0
 
     for item in shoppingList:
@@ -29,7 +31,11 @@ def checkout(skus):
             countOfA += 1
         elif item == 'B':
             countOfB += 1
+        elif item == 'E':
+            countofE += 1
 
     total = total - (int(countOfA / 3) * 20) - (int(countOfB / 2) * 15)
+
+    freeBs = int(countOfE / 2)
 
     return total
