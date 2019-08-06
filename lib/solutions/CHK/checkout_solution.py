@@ -151,13 +151,6 @@ def checkout(skus):
                     + (int((discountedItems['V'] - multiplesOf3V * 3) / 2) * discounts['2V']))
     totalForV = discountedItems['V'] * priceTable['V'] - discountForV
 
-    # Buy any 3 items from STXYZ
-    multiplesOf3 = int((discountedItems['S']
-                        + discountedItems['T']
-                        + discountedItems['X']
-                        + discountedItems['Y']
-                        + discountedItems['Z']) / 3)
-
     arrayOfSTXYZ = (discountedItems['S'] * [priceTable['S']]
                     + discountedItems['T'] * [priceTable['T']]
                     + discountedItems['X'] * [priceTable['X']]
@@ -166,11 +159,16 @@ def checkout(skus):
 
     arrayOfSTXYZ = sorted(arrayOfSTXYZ)
 
-
-    a=1
-    # for every multiple of 3
-    #     if count Z > 0
-
+    # Buy any 3 items from STXYZ
+    multiplesOf3 = int((discountedItems['S']
+                        + discountedItems['T']
+                        + discountedItems['X']
+                        + discountedItems['Y']
+                        + discountedItems['Z']) / 3)
+    valueToAdd = 0
+    for i in range(multiplesOf3):
+        arrayOfSTXYZ = arrayOfSTXYZ[:-3]
+        valueToAdd += 45
 
 
 
@@ -184,10 +182,13 @@ def checkout(skus):
              + totalForP
              + totalForQ
              + totalForU
-             + totalForV)
+             + totalForV
+             + arrayOfSTXYZ
+             + valueToAdd)
 
     return total
 
 print(checkout('SSTTXXYYZZ'))
+
 
 
