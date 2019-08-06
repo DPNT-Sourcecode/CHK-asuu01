@@ -21,7 +21,7 @@ def checkout(skus):
 
     countOfA = 0
     countOfB = 0
-    countofE = 0
+    countOfE = 0
     total = 0
 
     for item in shoppingList:
@@ -32,7 +32,7 @@ def checkout(skus):
         elif item == 'B':
             countOfB += 1
         elif item == 'E':
-            countofE += 1
+            countOfE += 1
 
     total = total - (int(countOfA / 3) * 20) - (int(countOfB / 2) * 15)
 
@@ -43,3 +43,5 @@ def checkout(skus):
         total = total - priceTable['B'] * freeBs
 
     return total
+
+print(checkout('BBBBEE'))
