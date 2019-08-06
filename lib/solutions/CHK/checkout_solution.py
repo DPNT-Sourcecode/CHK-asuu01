@@ -130,11 +130,37 @@ def checkout(skus):
 
     totalForQ = discountedItems['Q'] * priceTable['Q'] - int(discountedItems['Q'] / 3) * discounts['3Q']
 
+    # Item U (could combine with Item F as logic is same)
+    if discountedItems['U'] - int(discountedItems['U'] / 3) >= 0:
+        discountedItems['U'] -= int(discountedItems['U'] / 3)
+    else:
+        discountedItems['U'] = 0
+
+    totalForU = discountedItems['U'] * priceTable['U']
 
 
-    total = total + totalForA + totalForB + totalForF
+
+    # Item V
+    multiplesOf3V = int(discountedItems['V'] / 3)
+    discountForV = ((multiplesOf5A * discounts['5A'])
+                    + (int((discountedItems['V'] - multiplesOf3V * 3) / 2) * discounts['2V']))
+    totalForV = discountedItems['V'] * priceTable['V'] - discountForV
+
+    total = (total
+             + totalForA
+             + totalForB
+             + totalForF
+             + totalForH
+             + totalForK
+             + totalForM
+             + totalForP
+             + totalForQ
+             + totalForU
+             + totalForV)
+
 
     return total
 
 print(checkout('AAAAABBEE'))
+
 
