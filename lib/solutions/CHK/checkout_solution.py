@@ -1,13 +1,12 @@
-
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
 
-    shoppingList = []
+    knownItems = ('A', 'B', 'C', 'D')
 
+    shoppingList = []
     for item in skus:
-        if item not in ('A', 'B', 'C', 'D'):
+        if item not in knownItems:
             return -1
         else:
             shoppingList.append(item)
@@ -34,8 +33,6 @@ def checkout(skus):
     total = total - (int(countOfA / 3) * 20) - (int(countOfB / 2) * 15)
 
     return total
-
-print(checkout('AACDDDABB'))
 
 
 
