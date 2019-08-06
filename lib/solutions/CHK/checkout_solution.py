@@ -33,6 +33,3 @@ def checkout(skus):
     total = total - (int(countOfA / 3) * 20) - (int(countOfB / 2) * 15)
 
     return total
-
-
-
