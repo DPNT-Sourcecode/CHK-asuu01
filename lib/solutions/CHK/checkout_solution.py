@@ -2,7 +2,6 @@
 # skus = unicode string
 def checkout(skus):
 
-
     priceTable = {
         'A': 50,
         'B': 30,
@@ -39,13 +38,14 @@ def checkout(skus):
         else:
             shoppingList.append(item)
 
+    # Different savings values for promotions
     discounts = {
         '3A': 20,
         '5A': 50,
         '2B': 15
     }
 
-    # item: discount pairs
+    # Gather up discount item and it's count
     discountedItems = {'A': 0,
                        'B': 0,
                        'E': 0,
@@ -70,16 +70,6 @@ def checkout(skus):
         if item not in discountedItems:
             total += priceTable[item]
 
-
-        if item == 'A':
-            countOfA += 1
-        elif item == 'B':
-            countOfB += 1
-        elif item == 'E':
-            countOfE += 1
-        elif item == 'F':
-            countOfF += 1
-
     multiplesOf5A = int(countOfA / 5)
     discountForA = (multiplesOf5A * discounts['5A']) + (int((countOfA - multiplesOf5A * 5) / 3) * discounts['3A'])
     totalForA = countOfA * priceTable['A'] - discountForA
@@ -103,3 +93,4 @@ def checkout(skus):
     return total
 
 print(checkout('AAAAA'))
+
