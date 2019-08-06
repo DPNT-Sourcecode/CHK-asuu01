@@ -34,7 +34,9 @@ def checkout(skus):
         elif item == 'E':
             countOfE += 1
 
-    total = total - (int(countOfA / 3) * 20) - (int(countOfB / 2) * 15)
+    discountForA = (int(countOfA / 5) * 50) + (int(countOfA / 3) * 20)
+
+    total = total - discountForA - (int(countOfB / 2) * 15)
 
     freeBs = int(countOfE / 2)
 
@@ -44,3 +46,5 @@ def checkout(skus):
         total = total - priceTable['B'] * freeBs
 
     return total
+
+print(checkout('AAAAA'))
