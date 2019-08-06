@@ -11,16 +11,12 @@ def checkout(skus):
         'F': 10
     }
 
-    knownItems = priceTable.keys()
-
     shoppingList = []
     for item in skus:
-        if item not in knownItems:
+        if item not in priceTable.keys():
             return -1
         else:
             shoppingList.append(item)
-
-
 
     discounts = {
         '3A': 20,
@@ -64,4 +60,4 @@ def checkout(skus):
 
     return total
 
-print(checkout('FFF'))
+print(checkout('FFFFFFF'))
