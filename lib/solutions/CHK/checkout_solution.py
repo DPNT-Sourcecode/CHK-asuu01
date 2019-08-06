@@ -2,7 +2,16 @@
 # skus = unicode string
 def checkout(skus):
 
-    knownItems = ('A', 'B', 'C', 'D', 'E')
+    priceTable = {
+        'A': 50,
+        'B': 30,
+        'C': 20,
+        'D': 15,
+        'E': 40,
+        'F': 10
+    }
+
+    knownItems = priceTable.keys()
 
     shoppingList = []
     for item in skus:
@@ -11,13 +20,7 @@ def checkout(skus):
         else:
             shoppingList.append(item)
 
-    priceTable = {
-        'A': 50,
-        'B': 30,
-        'C': 20,
-        'D': 15,
-        'E': 40
-    }
+
 
     discounts = {
         '3A': 20,
@@ -28,6 +31,7 @@ def checkout(skus):
     countOfA = 0
     countOfB = 0
     countOfE = 0
+    countOfF = 0
     total = 0
 
     for item in shoppingList:
@@ -39,6 +43,8 @@ def checkout(skus):
             countOfB += 1
         elif item == 'E':
             countOfE += 1
+        elif item == 'F':
+            countOfF += 1
 
     multiplesOf5A = int(countOfA / 5)
     discountForA = (multiplesOf5A * discounts['5A']) + (int((countOfA - multiplesOf5A * 5) / 3) * discounts['3A'])
@@ -51,6 +57,11 @@ def checkout(skus):
 
     totalForB = countOfB * priceTable['B'] - int(countOfB / 2) * discounts['2B']
 
-    total = total + totalForA + totalForB
+    countOfF -= int(countOfF / 3)
+    totalForF = countOfF * priceTable['F']
+
+    total = total + totalForA + totalForB + totalForF
 
     return total
+
+print(checkout('FFF'))
