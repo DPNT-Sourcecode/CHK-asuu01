@@ -53,9 +53,15 @@ def checkout(skus):
 
     totalForB = countOfB * priceTable['B'] - int(countOfB / 2) * discounts['2B']
 
-    countOfF -= int(countOfF / 3)
+    if countOfF - int(countOfF / 3) >= 0:
+        countOfF -= int(countOfF / 3)
+    else:
+        countOfF = 0
+
     totalForF = countOfF * priceTable['F']
 
     total = total + totalForA + totalForB + totalForF
 
     return total
+
+print(checkout('AAAAA'))
