@@ -43,13 +43,13 @@ def checkout(skus):
         '3A': 20,
         '5A': 50,
         '2B': 15,
-        '5H': 45,
-        '10H': 80,
-        '2K': 150,
-        '5P': 200,
-        '3Q': 80,
-        '2V': 90,
-        '3V': 130
+        '5H': 5,
+        '10H': 20,
+        '2K': 10,
+        '5P': 50,
+        '3Q': 10,
+        '2V': 10,
+        '3V': 20
     }
 
     # Gather up discount item and it's count
@@ -60,6 +60,7 @@ def checkout(skus):
                        'H': 0,
                        'K': 0,
                        'N': 0,
+                       'M': 0,
                        'P': 0,
                        'Q': 0,
                        'R': 0,
@@ -105,11 +106,25 @@ def checkout(skus):
                     + (int((discountedItems['H'] - multiplesOf5A * 10) / 5) * discounts['5H']))
     totalForH = discountedItems['H'] * priceTable['H'] - discountForH
 
-    
+    # Item K
+    multiplesOf2K = int(discountedItems['K'] / 2)
+    totalForK = discountedItems['K'] * priceTable['K'] - multiplesOf2K * discounts['2K']
 
+    # Item M
+    if discountedItems['M'] - int(discountedItems['N'] / 3) >= 0:
+        discountedItems['M'] -= int(discountedItems['N'] / 3)
+    else:
+        discountedItems['M'] = 0
 
+    totalForM = discountedItems['M'] * priceTable['M']
 
+    # Item P
+    multiplesOf5P = int(discountedItems['P'] / 5)
+    totalForP = discountedItems['P'] * priceTable['P'] - multiplesOf5P * discounts['5P']
 
+    # Item Q
+    multiplesOf3Q = int(discountedItems['Q'] / 3)
+    totalForQ = discountedItems['Q'] * priceTable['Q'] - multiplesOf3Q * discounts['3Q']
 
     total = total + totalForA + totalForB + totalForF
 
