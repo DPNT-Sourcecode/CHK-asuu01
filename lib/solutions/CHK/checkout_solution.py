@@ -38,4 +38,8 @@ def checkout(skus):
 
     freeBs = int(countOfE / 2)
 
+    if freeBs and countOfB:
+        # if countOfB == 1 or countOfB % 2:
+        total = total - priceTable['B'] * freeBs
+
     return total
