@@ -157,7 +157,19 @@ def checkout(skus):
                         + discountedItems['X']
                         + discountedItems['Y']
                         + discountedItems['Z']) / 3)
-            
+
+    arrayOfSTXYZ = discountedItems['S'] * [priceTable['S']]
+                           + discountedItems['T'] * [priceTable['T']]
+                           + discountedItems['X'] * [priceTable['X']]
+                           + discountedItems['Y'] * [priceTable['Y']]
+                           + discountedItems['Z'] * [priceTable['Z']]
+
+
+    a=1
+    # for every multiple of 3
+    #     if count Z > 0
+
+
 
 
     total = (total
@@ -174,5 +186,5 @@ def checkout(skus):
 
     return total
 
-print(checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+print(checkout('SSTTXXYYZZ'))
 
