@@ -79,7 +79,7 @@ def checkout(skus):
             if item == discItem:
                 discountedItems[discItem] += 1
 
-    multiplesDicountItems = ('A', 'B', 'F', 'H', 'K', 'M', 'P', 'Q', 'U', 'V')
+    multiplesDicountItems = ('A', 'B', 'F', 'H', 'K', 'M', 'P', 'Q', 'S', 'T', 'U', 'V', 'X', 'Y,', 'Z')
     total = 0
     for item in shoppingList:
         if item not in multiplesDicountItems:
@@ -170,8 +170,6 @@ def checkout(skus):
         arrayOfSTXYZ = arrayOfSTXYZ[:-3]
         valueToAdd += 45
 
-
-
     total = (total
              + totalForA
              + totalForB
@@ -187,5 +185,3 @@ def checkout(skus):
              + valueToAdd)
 
     return total
-
-print(checkout('S'))
