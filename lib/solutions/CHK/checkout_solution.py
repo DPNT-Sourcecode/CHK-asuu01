@@ -72,7 +72,7 @@ def checkout(skus):
             if item == discItem:
                 discountedItems[discItem] += 1
 
-    multiplesDicountItems = ('A', 'B', 'H', 'K', 'M', 'P', 'Q', 'U', 'V')
+    multiplesDicountItems = ('A', 'B', 'F', 'H', 'K', 'M', 'P', 'Q', 'U', 'V')
     total = 0
     for item in shoppingList:
         if item not in multiplesDicountItems:
@@ -130,9 +130,9 @@ def checkout(skus):
 
     totalForQ = discountedItems['Q'] * priceTable['Q'] - int(discountedItems['Q'] / 3) * discounts['3Q']
 
-    # Item U (could combine with Item F as logic is same)
-    if discountedItems['U'] - int(discountedItems['U'] / 3) >= 0:
-        discountedItems['U'] -= int(discountedItems['U'] / 3)
+    # Item U
+    if discountedItems['U'] - int(discountedItems['U'] / 4) >= 0:
+        discountedItems['U'] -= int(discountedItems['U'] / 4)
     else:
         discountedItems['U'] = 0
 
@@ -158,4 +158,4 @@ def checkout(skus):
 
     return total
 
-print(checkout('F'))
+print(checkout('UUUU'))
