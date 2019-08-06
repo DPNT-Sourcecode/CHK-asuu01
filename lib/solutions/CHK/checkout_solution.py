@@ -70,27 +70,30 @@ def checkout(skus):
         if item not in discountedItems:
             total += priceTable[item]
 
-    multiplesOf5A = int(countOfA / 5)
-    discountForA = (multiplesOf5A * discounts['5A']) + (int((countOfA - multiplesOf5A * 5) / 3) * discounts['3A'])
-    totalForA = countOfA * priceTable['A'] - discountForA
+    multiplesOf5A = int(discountedItems['A'] / 5)
+    discountForA = (multiplesOf5A * discounts['5A']) + (int((discountedItems['A'] - multiplesOf5A * 5) / 3) * discounts['3A'])
+    totalForA = discountedItems['A'] * priceTable['A'] - discountForA
 
-    if countOfB - int(countOfE / 2) >= 0:
-        countOfB -= int(countOfE / 2)
+    if discountedItems['B'] - int(discountedItems['E'] / 2) >= 0:
+        discountedItems['B'] -= int(discountedItems['E'] / 2)
     else:
-        countOfB = 0
+        discountedItems['B'] = 0
 
-    totalForB = countOfB * priceTable['B'] - int(countOfB / 2) * discounts['2B']
+    totalForB = discountedItems['B'] * priceTable['B'] - int(discountedItems['B'] / 2) * discounts['2B']
 
-    if countOfF - int(countOfF / 3) >= 0:
-        countOfF -= int(countOfF / 3)
+    if discountedItems['F'] - int(discountedItems['F'] / 3) >= 0:
+        discountedItems['F'] -= int(discountedItems['F'] / 3)
     else:
-        countOfF = 0
+        discountedItems['F'] = 0
 
-    totalForF = countOfF * priceTable['F']
+    totalForF = discountedItems['F'] * priceTable['F']
+
+
+
 
     total = total + totalForA + totalForB + totalForF
 
     return total
 
-print(checkout('AAAAA'))
+print(checkout('EEBBEE'))
 
