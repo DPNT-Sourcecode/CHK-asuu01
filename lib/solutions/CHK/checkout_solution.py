@@ -67,7 +67,7 @@ def checkout(skus):
     total = 0
 
     for item in shoppingList:
-        if item not in discountedItems:
+        if item not in ('A', 'B', 'H', 'K', 'P', 'Q'):
             total += priceTable[item]
 
     multiplesOf5A = int(discountedItems['A'] / 5)
@@ -96,4 +96,5 @@ def checkout(skus):
     return total
 
 print(checkout('EEBBEE'))
+
 
