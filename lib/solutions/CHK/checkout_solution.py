@@ -33,7 +33,7 @@ def checkout(skus):
     for item in shoppingList:
         if item in ('C', 'D', 'E'):
             total += priceTable[item]
-        elif item == 'A':
+        if item == 'A':
             countOfA += 1
         elif item == 'B':
             countOfB += 1
@@ -51,5 +51,6 @@ def checkout(skus):
 
     return total
 
-print(checkout('ABCDEABCDE'))
+print(checkout('EEEEBB'))
+
 
