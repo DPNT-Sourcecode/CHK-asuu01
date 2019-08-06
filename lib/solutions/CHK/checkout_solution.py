@@ -3,7 +3,14 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    shoppingList = [item for item in skus]
+
+    shoppingList = []
+
+    for item in skus:
+        if item not in ('A', 'B', 'C', 'D'):
+            return -1
+        else:
+            shoppingList.append(item)
 
     priceTable = {
         'A': 50,
@@ -29,5 +36,6 @@ def checkout(skus):
     return total
 
 print(checkout('AACDDDABB'))
+
 
 
