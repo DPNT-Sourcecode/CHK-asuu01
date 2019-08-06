@@ -42,7 +42,14 @@ def checkout(skus):
     discounts = {
         '3A': 20,
         '5A': 50,
-        '2B': 15
+        '2B': 15,
+        '5H': 45,
+        '10H': 80,
+        '2K': 150,
+        '5P': 200,
+        '3Q': 80,
+        '2V': 90,
+        '3V': 130
     }
 
     # Gather up discount item and it's count
@@ -64,16 +71,19 @@ def checkout(skus):
             if item == discItem:
                 discountedItems[discItem] += 1
 
-    multiplesDicountItems = ('A', 'B', 'H', 'K', 'P', 'Q', 'U', 'V')
+    multiplesDicountItems = ('A', 'B', 'H', 'K', 'M' 'P', 'Q', 'U', 'V')
     total = 0
     for item in shoppingList:
         if item not in multiplesDicountItems:
             total += priceTable[item]
 
+    # Item A
     multiplesOf5A = int(discountedItems['A'] / 5)
-    discountForA = (multiplesOf5A * discounts['5A']) + (int((discountedItems['A'] - multiplesOf5A * 5) / 3) * discounts['3A'])
+    discountForA = ((multiplesOf5A * discounts['5A'])
+                    + (int((discountedItems['A'] - multiplesOf5A * 5) / 3) * discounts['3A']))
     totalForA = discountedItems['A'] * priceTable['A'] - discountForA
 
+    # Item B
     if discountedItems['B'] - int(discountedItems['E'] / 2) >= 0:
         discountedItems['B'] -= int(discountedItems['E'] / 2)
     else:
@@ -81,12 +91,22 @@ def checkout(skus):
 
     totalForB = discountedItems['B'] * priceTable['B'] - int(discountedItems['B'] / 2) * discounts['2B']
 
+    # Item F
     if discountedItems['F'] - int(discountedItems['F'] / 3) >= 0:
         discountedItems['F'] -= int(discountedItems['F'] / 3)
     else:
         discountedItems['F'] = 0
 
     totalForF = discountedItems['F'] * priceTable['F']
+
+    # Item H
+    multiplesOf10H = int(discountedItems['H'] / 10)
+    discountForH = ((multiplesOf10H * discounts['10H'])
+                    + (int((discountedItems['H'] - multiplesOf5A * 10) / 5) * discounts['5H']))
+    totalForH = discountedItems['H'] * priceTable['H'] - discountForH
+
+    
+
 
 
 
@@ -96,5 +116,3 @@ def checkout(skus):
     return total
 
 print(checkout('AAAAABBEE'))
-
-
