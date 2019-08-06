@@ -39,9 +39,8 @@ def checkout(skus):
     freeBs = int(countOfE / 2)
 
     if freeBs and countOfB:
-        # Since customer is always favoured, it is assumed that getting a free B does not remove the 2B for 45 discount
+        # Since customer is always favoured, it is assumed that getting a free B does not remove the 2B for 45 discount.
+        # Under the same assumption also discounting full B price first, and then still applying 2Bs for 45.
         total = total - priceTable['B'] * freeBs
 
     return total
-
-print(checkout('BBBBEE'))
