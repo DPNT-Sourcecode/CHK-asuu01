@@ -158,11 +158,13 @@ def checkout(skus):
                         + discountedItems['Y']
                         + discountedItems['Z']) / 3)
 
-    arrayOfSTXYZ = discountedItems['S'] * [priceTable['S']]
-                           + discountedItems['T'] * [priceTable['T']]
-                           + discountedItems['X'] * [priceTable['X']]
-                           + discountedItems['Y'] * [priceTable['Y']]
-                           + discountedItems['Z'] * [priceTable['Z']]
+    arrayOfSTXYZ = (discountedItems['S'] * [priceTable['S']]
+                    + discountedItems['T'] * [priceTable['T']]
+                    + discountedItems['X'] * [priceTable['X']]
+                    + discountedItems['Y'] * [priceTable['Y']]
+                    + discountedItems['Z'] * [priceTable['Z']])
+
+    arrayOfSTXYZ = sorted(arrayOfSTXYZ)
 
 
     a=1
@@ -187,4 +189,5 @@ def checkout(skus):
     return total
 
 print(checkout('SSTTXXYYZZ'))
+
 
