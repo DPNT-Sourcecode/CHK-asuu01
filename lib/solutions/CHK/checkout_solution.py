@@ -44,14 +44,16 @@ def checkout(skus):
     discountForA = (multiplesOf5A * discounts['5A']) + (int((countOfA - multiplesOf5A * 5) / 3) * discounts['3A'])
     totalForA = countOfA * priceTable['A'] - discountForA
 
-    countOfB -= int(countOfE / 2)
+    if countOfB - int(countOfE / 2) >= 0:
+        countOfB -= int(countOfE / 2)
+    else:
+        countOfB = 0
+
     totalForB = countOfB * priceTable['B'] - int(countOfB / 2) * discounts['2B']
 
     total = total + totalForA + totalForB
 
     return total
-
-print(checkout('EE'))
 
 
 
