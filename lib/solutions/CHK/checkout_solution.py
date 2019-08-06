@@ -3,7 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    shoppingList = skus.split()
+    shoppingList = [item for item in skus]
 
     priceTable = {
         'A': 50,
@@ -21,4 +21,5 @@ def checkout(skus):
         pass
 
 checkout('AAA')
+
 
